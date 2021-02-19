@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.recyclerviewform.FirstFragment"
+        android:label="Editor"
+        tools:layout="@layout/first_fragment">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFrgament"
+            app:destination="@id/secondFrgament" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFrgament"
+        android:name="com.example.recyclerviewform.SecondFrgament"
+        android:label="List Data"
+        tools:layout="@layout/second_fragment">
+        <argument
+            android:name="firstData"
+            app:argType="string" />
+        <argument
+            android:name="secondData"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_secondFrgament_to_updateFragment"
+            app:destination="@id/updateFragment" />
+        <argument
+            android:name="userId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.recyclerviewform.UpdateFragment"
+        android:label="update_fragment"
+        tools:layout="@layout/update_fragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_secondFrgament"
+            app:destination="@id/secondFrgament"
+            app:popUpTo="@id/secondFrgament" />
+        <argument
+            android:name="userId"
+            app:argType="long" />
+    </fragment>
+</navigation>
